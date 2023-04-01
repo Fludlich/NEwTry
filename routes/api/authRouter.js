@@ -18,7 +18,7 @@ const {
 
 const storage = multer.diskStorage({
   destination: (request, file, cb) => {
-    cb(null, path.resolve("./tmp"));
+    cb(null, path.resolve("../../tmp"));
   },
   filename: (request, file, cb) => {
     const [filename, extention] = file.originalname.split(".");
