@@ -16,17 +16,18 @@ const {
   resendVerifyingEmailController,
 } = require("../../controllers/verifyMail");
 
-const storage = multer.diskStorage({
-  destination: (request, file, cb) => {
-    cb(null, path.resolve("./tmp"));
-  },
-  filename: (request, file, cb) => {
-    const [filename, extention] = file.originalname.split(".");
-    cb(null, `${filename}.${extention}`);
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: (request, file, cb) => {
+//     cb(null, path.resolve("./tmp"));
+//   },
+//   // filename: (request, file, cb) => {
+//   //   const [filename, extention] = file.originalname.split(".");
+//   //   cb(null, `${filename}.${extention}`);
+//   // },
+// });
+const uploadMiddleware = require("../../helpers/multerConfig")
 
-const uploadMiddleware = multer({ storage });
+// const uploadMiddleware = multer({ storage });
 
 const { uploadController } = require("../../controllers/avatar/uploadAvatar");
 
