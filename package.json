@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "./server.js",
+    "start": " NODE_ENV=production node ./server.js",
     "dev": "NODE_ENV=development npx nodemon ./index.js",
     "lint": "npx eslint ../src",
     "lint:fix": "npx eslint ../src --fix"
