@@ -16,9 +16,9 @@ const {authRouter} = require('./routes/api/authRouter');
 const app = express();
 app.use(express.static('public'));
 
-const formatLogger = app.get('env') === 'development' ? 'dev' : 'short';
+// const formatLogger = app.get('env') === 'development' ? 'dev' : 'short';
 
-app.use(logger(formatLogger));
+// app.use(logger(formatLogger));
 app.use(cors());
 app.use(express.json());
 
