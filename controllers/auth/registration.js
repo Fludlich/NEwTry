@@ -12,7 +12,11 @@ const registrationController = async (request, response) => {
     password,
     // file,
   } = request.body;
-  const { path: file } = request.file;
+  let file 
+  // { path: file } = request?.file;
+  if (request.file && request.file !== undefined) {
+    return (file = request.file.path);
+  }
 
   const userAvatar = {
     default: false,
