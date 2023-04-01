@@ -3,7 +3,7 @@
   "name": "node",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "jest",
     "start": " NODE_ENV=production node ./server.js",
