@@ -6,14 +6,9 @@ const date = Date.now();
 const created = new Date(date);
 
 const registrationController = async (request, response) => {
+  const { login, email, password } = request.body;
 
-  const {
-    login,
-    email,
-    password,
-  } = request.body;
-
-  // let file 
+  // let file
 
   // console.log(request.file)
 
@@ -28,22 +23,27 @@ const registrationController = async (request, response) => {
   //   return (file = request.file.path);
   // }
 
+  let userAvatar;
+  let defAvatar;
 
-  const userAvatar = {
-    default: false,
-    id: date,
-    avatarUrl: request.file.path,
-    created: created,
-  };
-
-  const defAvatar = {
-    default: true,
-    id: date,
-    avatarUrl: gravatar.url(email, { s: "100", r: "x", d: "retro" }, true),
-    created: created,
-  };
- 
-  const avatar = request.file !== undefined ? userAvatar : defAvatar;
+  const avatar =
+    request.file !== undefined
+      ? (userAvatar = {
+          default: false,
+          id: date,
+          avatarUrl: request.file.path,
+          created: created,
+        })
+      : (defAvatar = {
+          default: true,
+          id: date,
+          avatarUrl: gravatar.url(
+            email,
+            { s: "100", r: "x", d: "retro" },
+            true
+          ),
+          created: created,
+        });
 
   const verificationToken = nanoid();
   await registration(login, email, password, avatar, verificationToken);
