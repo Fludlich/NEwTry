@@ -1,9 +1,11 @@
 const { User } = require("../../db/userModel");
 
 const current = async (request, response) => {
-  const { _id } = request.user;
-  const user = await User.findById(_id);
-  response.json({ email: user.email });
+  const [, token] = req.headers.authorization.split(" ");
+  // const user = await User.findById(_id);
+  const user = await getCurrentUser(token);
+  // console.log(user)
+  response.json({ token: user.token, user: user});
 };
 
 module.exports = { current };
