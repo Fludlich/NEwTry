@@ -4,6 +4,7 @@ const path = require("path");
 const uploadDir = path.resolve("./tmp");
 
 const storage = multer.diskStorage({
+
   destination: (req, file, cb) => {
     cb(null, uploadDir);
   },

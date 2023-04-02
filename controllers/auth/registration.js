@@ -6,22 +6,33 @@ const date = Date.now();
 const created = new Date(date);
 
 const registrationController = async (request, response) => {
+
   const {
     login,
     email,
     password,
-    // file,
   } = request.body;
-  let file 
+
+  // let file 
+
+  // console.log(request.file)
+
+  // if (request.file) {
+  //   return file = request.file.path
+  // }
+
+  // console.log(file)
   // { path: file } = request?.file;
-  if (request.file && request.file !== undefined) {
-    return (file = request.file.path);
-  }
+  // if (request.file !== undefined) {
+
+  //   return (file = request.file.path);
+  // }
+
 
   const userAvatar = {
     default: false,
     id: date,
-    avatarUrl: file,
+    avatarUrl: request.file.path,
     created: created,
   };
 
@@ -31,8 +42,8 @@ const registrationController = async (request, response) => {
     avatarUrl: gravatar.url(email, { s: "100", r: "x", d: "retro" }, true),
     created: created,
   };
-
-  const avatar = file ? userAvatar : defAvatar;
+ 
+  const avatar = request.file !== undefined ? userAvatar : defAvatar;
   console.log(avatar);
 
   const verificationToken = nanoid();
