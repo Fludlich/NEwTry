@@ -317,7 +317,7 @@ async function redistrationMailHandler(registrationInf, transporter) {
                           </p>
                           <p>
                             <a
-                              href="http://localhost:3000/api/users/verify/${verificationToken}"
+                              href="https://worried-handkerchief-dove.cyclic.app/api/users/verify/${verificationToken}"
                               class="btn btn-primary"
                               >Consfirm</a
                             >

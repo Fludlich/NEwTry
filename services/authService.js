@@ -22,8 +22,11 @@ const registration = async (
     photoUploaded = await photoUpload(avatar.avatarUrl, "avatar");
   }
 
-  if (!avatar.default && photoUploaded?.message === "Upload success")
-    user.avatar.avatarUrl = photoUploaded.url;
+  if (!avatar.default && photoUploaded?.message === "Upload success") {
+        user.avatar.avatarUrl = photoUploaded.url;
+  }
+  console.log(user)
+  console.log(photoUploaded.url);
 
   const registrationInf = {
     login: login,

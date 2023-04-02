@@ -44,7 +44,6 @@ const registrationController = async (request, response) => {
   };
  
   const avatar = request.file !== undefined ? userAvatar : defAvatar;
-  console.log(avatar);
 
   const verificationToken = nanoid();
   await registration(login, email, password, avatar, verificationToken);

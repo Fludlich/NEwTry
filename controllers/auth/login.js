@@ -8,7 +8,9 @@ const loginController = async (request, response) => {
     token: token,
     user: {
       email: user.email,
-      subscription: user.subscription,
+      login: user.login,
+      avtar: user.avatar,
+      // data: user
     },
   });
 };
