@@ -28,4 +28,4 @@ router.patch(
   controllWrapper(controller.updateFavoriteController)
 );
 
-module.exports = { postRouter: router };
+module.exports = { contactRouter: router };

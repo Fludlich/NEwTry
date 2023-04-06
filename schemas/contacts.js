@@ -7,6 +7,12 @@ const addSchema = Joi.object({
   favorite: Joi.boolean(),
 });
 
+const addPostSchema = Joi.object({
+  location: Joi.string(),
+  description: Joi.string(),
+  file: Joi.string().required(),
+});
+
 const updateFavoriteSchema = Joi.object({
   favorite: Joi.boolean().required(),
 });
@@ -26,4 +32,5 @@ module.exports = {
   updateFavoriteSchema,
   resendVerificationEmail,
   changeSubsription,
+  addPostSchema,
 };

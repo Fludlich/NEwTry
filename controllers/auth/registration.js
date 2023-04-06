@@ -1,6 +1,5 @@
 const { registration } = require("../../services/authService");
 var gravatar = require("gravatar");
-const { mailHandler } = require("../../nodemailer/nodemailer");
 const { nanoid } = require("nanoid");
 const date = Date.now();
 const created = new Date(date);

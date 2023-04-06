@@ -9,8 +9,9 @@ const cors = require('cors');
 // UploadPhoto()
     // "start": " NODE_ENV=production node ./server.js",
 //faeffafesf///
-const {postRouter} = require('./routes/api/contacts');
-const {authRouter} = require('./routes/api/authRouter');
+const {contactRouter} = require('./routes/api/contacts');
+const { authRouter } = require('./routes/api/authRouter');
+const {postRouter} = require('./routes/api/postRouter')
 // const { upload } = require('./services/avatarServices');
 
 const app = express();
@@ -22,8 +23,9 @@ app.use(logger(formatLogger));
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/contacts', postRouter)
+app.use("/api/contacts", contactRouter);
 app.use('/api/users', authRouter)
+app.use("/api/posts", postRouter);
 
 app.use(( request, response ) =>{
   response.status(404).json({message: 'Not found'})
